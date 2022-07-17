@@ -10,9 +10,7 @@ type Props = {
 
 // export const getStaticProps: GetStaticProps<Props> = async () => {
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const data = await fetch("https://dog.ceo/api/breeds/image/random").then(
-    (res) => res.json()
-  );
+  const data = await fetch("https://yesno.wtf/api").then((res) => res.json());
   // const data = "wowowowo";
 
   return {
@@ -27,7 +25,7 @@ const Home: NextPage<Props> = ({ data }) => {
     fetch("/user").then((res) =>
       res.json().then((data) => console.log(`client: ${JSON.stringify(data)}`))
     );
-    fetch("https://dog.ceo/api/breeds/image/random").then((res) =>
+    fetch("https://yesno.wtf/api").then((res) =>
       res.json().then((data) => console.log(`client: ${JSON.stringify(data)}`))
     );
   }, []);
